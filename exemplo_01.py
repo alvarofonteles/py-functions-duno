@@ -6,12 +6,10 @@ def func_nomeada():
 print(f'1 - {func_nomeada()}')
 print(f'1.1 - {type(func_nomeada)}')  # <class 'function'>
 
+anonima = lambda: 'Oi'
 
-def func_anomima(): return 'Oi'
-
-
-print(f'2 - {func_anomima()}')
-print(f'2.1 - {type(func_anomima)}')  # <class 'function'>
+print(f'2 - {anonima()}')
+print(f'2.1 - {type(anonima)}')  # <class 'function'>
 
 (lambda: 'Oi')()
 print(f'3 - {(lambda: 'Oi')()}')

@@ -1,4 +1,21 @@
 # %%
+
+''' 
+Obs.: Devido ao autopep8 a funcao lambda anonima [lambda param and lambda param1, param2] 
+      se converteu em [def anomima(param) and def anomima2(param1, param2)] respectivamente
+'''
+
+anonima = lambda param: param + 2
+anonima_plus =  lambda param1, param2: param1 + param2
+
+
+param1 = anonima(3)
+print(param1)
+
+param2 = anonima_plus(7, 9)
+print(param2)
+
+# %%
 def anomima(param): return param + 1  # um parametro na funcao anonima
 
 
@@ -27,11 +44,13 @@ def soma_nomeados(x=5, y=4):  # como default, na falta de parametro assume se o 
 
 soma4 = soma_nomeados()
 print(soma4)
+
 soma4_1 = soma_nomeados(3, 9)
 soma4_2 = soma_nomeados(y=9, x=3)
 soma4_3 = soma_nomeados(9)
 soma4_4 = soma_nomeados(x=3)
 soma4_5 = soma_nomeados(y=9)
+
 print(soma4_1)
 print(soma4_2)
 print(soma4_3)
