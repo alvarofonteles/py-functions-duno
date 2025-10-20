@@ -29,7 +29,8 @@ hasattr([], '__add__')  # True
 
 
 # %%
-def soma(x: [int, float, complex], y: [int, float, complex]) -> [int, float, complex]:
+# def soma(x: [int, float, complex], y: [int, float, complex]) -> [int, float, complex]:
+def soma(x: int | float | complex, y: int | float | complex) -> int | float | complex:
     return x + y
 
 
@@ -141,18 +142,40 @@ cadastro_usuario2('Álvaro', 42, ['Estudar', 'Ajudar'])
 
 
 # %%
+def cadastro_usuario_moderno(
+    nome: str,
+    idade: int,
+    gostos: list[str],
+) -> dict[str, str | int | list[str]]:
+    '''
+    dict em vez de Dict (Python 3.9+)
+
+    | em vez de Union (Python 3.10+)
+
+    Mais curto, mais limpo, mais pythonico
+    '''
+
+    return {
+        'nome': nome,
+        'idade': idade,
+        'gostos': gostos,
+    }
+
+
+cadastro_usuario_moderno('Álvaro', 42, ['Estudar', 'Ensinar'])
+
+# %%
 type('2.5')
 # %%
 type(b'2.5')  # bytes
 
 
-# %%¨
+# %%
 def meu_min(seq: Sequence[Number]) -> Number:
-    """Encontra o menor valor em uma sequência de números."""
+    '''Encontra o menor valor em uma sequência de números.'''
     return min(seq)
 
 
-# ✅ Testes
 meu_min([1, 2, 3])  # Lista
 # %%
 meu_min((1.5, 2.5, 3.5))  # Tupla
@@ -162,15 +185,14 @@ meu_min({5, 3, 8})  # Set
 
 # %%
 def converte_texto_para_float(valor: Text) -> float:
-    """Converte texto para valor em reais (float)."""
+    '''Converte texto para valor em reais (float).'''
     # Remove R$, espaços e converte vírgula para ponto
     valor_limpo = valor.replace('R$', '').replace(' ', '').replace(',', '.')
     return float(valor_limpo)
 
 
-# ✅ Testes
-converte_texto_para_float("R$ 2,50")  # 2.5
+converte_texto_para_float('R$ 2,50')  # 2.5
 # %%
-converte_texto_para_float("10,99")  # 10.99
+converte_texto_para_float('10,99')  # 10.99
 # %%
-converte_texto_para_float("  5.75  ")  # 5.75
+converte_texto_para_float('  5.75  ')  # 5.75
