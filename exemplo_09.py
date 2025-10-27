@@ -1,7 +1,7 @@
 '''Funções #9 - Funções parciais (functools).'''
 
 # %%
-from operator import add, mul
+from operator import add, mul, itemgetter
 from functools import reduce, partial
 
 
@@ -99,3 +99,21 @@ print(part_mul(3))  # 6
 part_mul_all = partial(map, part_mul)  # ← função parcial
 resultado = part_mul_all(lista3)  # ← executa map(part_mul, lista1)
 print(list(resultado))  # ← converte para lista [2, 4, 6, 8, 10]
+
+
+# %%
+def func(a, b, c, d, database=None):
+    return database, a, b, c, d
+
+
+func_teste = func(1, 2, 3, 4, 'oracle')
+print(func_teste)  # ('oracle', 1, 2, 3, 4)
+
+# %%
+func_oracle = partial(func, database='oracle')
+result_oracle = func_oracle(1, 2, 3, 4)
+print(result_oracle)  # ('oracle', 1, 2, 3, 4)
+
+func_mysql = partial(func, database='mysql')
+result_mysql = func_mysql(1, 2, 3, 4)
+print(result_mysql)  # ('mysql', 1, 2, 3, 4)
